@@ -14,6 +14,7 @@ class SplashScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
+            SizedBox(height: 40,),
             Image.asset(AppImages.appImage),
             SizedBox(height: 50),
             Text(
@@ -25,17 +26,18 @@ class SplashScreen extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
+            SizedBox(height: 25,),
             Text(
               "Explore all the existing job roles based on your interest and study major",
               style: TextStyle(fontSize: 15),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 50),
+            SizedBox(height: 70),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                CustomButton(text: 'Sign in', color: AppColor.appColor ,),
-                CustomButton(text: 'Sign up', color: AppColor.appColor ,),
+                CustomButton(text: 'Login', color: AppColor.appColor ,onTap: (){print("Login Successfully");},),
+                CustomButton(text: 'Register', color: AppColor.appColor ,onTap: (){Text('Registration complete');}),
               ],
             ),
           ],
