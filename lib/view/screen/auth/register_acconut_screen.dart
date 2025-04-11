@@ -1,23 +1,23 @@
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:job_app/core/app_color.dart';
 import 'package:job_app/core/app_text.dart';
-import 'package:job_app/view/screen/auth/forgot_password_screen.dart';
-import 'package:job_app/view/screen/auth/register_acconut_screen.dart';
+import 'package:job_app/view/screen/auth/login_screen.dart';
 import 'package:job_app/view/widget/my_custom_button.dart';
-import 'package:job_app/view/widget/my_custom_icon.dart';
 import 'package:job_app/view/widget/my_custom_input_textfield.dart';
 import 'package:job_app/view/widget/my_custom_text.dart';
 import 'package:job_app/view/widget/my_custom_text_button.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+import '../../widget/my_custom_icon.dart';
+
+class RegisterAcconut extends StatefulWidget {
+  const RegisterAcconut({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterAcconut> createState() => _RegisterAcconutState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterAcconutState extends State<RegisterAcconut> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,77 +29,61 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(height: 100),
               Center(
                 child: MyCustomText(
-                  text: AppText.loginTitle,
+                  text: AppText.registerAccountTitle,
+                  fontSize: 30,
                   textColor: AppColor.appColor,
-                  fontSize: 35,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 55),
-                child: MyCustomText(
-                  text: AppText.loginSubTitle,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+              MyCustomText(
+                text: AppText.registerAccountSubTitle,
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
               ),
-              SizedBox(height: 70),
+              SizedBox(height: 50),
               MyCustomInputTextfield(
                 label: AppText.labelTextGmail,
                 keybord: TextInputType.emailAddress,
               ),
-              //Gmail
+              //Email
               SizedBox(height: 20),
               MyCustomInputTextfield(
                 label: AppText.labelTextPassword,
-                keybord: TextInputType.number,
+                keybord: TextInputType.visiblePassword,
               ),
-              //password
+              //Password
+              SizedBox(height: 20),
+              MyCustomInputTextfield(
+                label: "Confirm Password",
+                keybord: TextInputType.visiblePassword,
+              ),
+              //Confirm password
+              SizedBox(height: 50),
+              MyCustomButton(text: "Sign Up", width: double.maxFinite),
               SizedBox(height: 20),
               MyCustomTextButton(
-                text: "Forgot your password?",
+                text: "Already have an account?",
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => ForgotPassword()),
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
                   );
                 },
               ),
-              SizedBox(height: 20),
-              MyCustomButton(
-                width: double.maxFinite,
-                text: 'Sign in',
-                onTap: () {
-                  print("Login Successful");
-                },
-              ),
-              SizedBox(height: 25),
-              MyCustomTextButton(
-                text: "Create New Account",
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => RegisterAcconut()),
-                  );
-                },
-              ),
-              SizedBox(height: 30),
+              SizedBox(height: 40),
               Text(
-                'Or continue with',
+                "Or continue with",
                 style: TextStyle(
-                  color: AppColor.appColor,
+                  fontSize: 15,
                   fontWeight: FontWeight.bold,
+                  color: AppColor.appColor,
                 ),
               ),
               SizedBox(height: 10),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  MyCustomIcon(email: Icons.email, link: () {
-                    print('hello');
-                  }),
+                  MyCustomIcon(email: Icons.email),
                   MyCustomIcon(email: Icons.facebook),
                   MyCustomIcon(email: Icons.apple),
                 ],
