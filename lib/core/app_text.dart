@@ -14,8 +14,4 @@ class AppText {
   static const String resendCode = "If you didn't receive a code,";
   static const String newPassword = "New Password";
 
-
-
-
-
 }

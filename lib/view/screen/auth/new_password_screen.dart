@@ -5,9 +5,6 @@ import 'package:job_app/view/widget/my_custom_button.dart';
 import 'package:job_app/view/widget/my_custom_icon.dart';
 import 'package:job_app/view/widget/my_custom_input_textfield.dart';
 import 'package:job_app/view/widget/my_custom_text.dart';
-import 'package:job_app/view/widget/my_custom_text_button.dart';
-
-import 'login_screen.dart';
 
 class NewPasswordScreen extends StatefulWidget {
   const NewPasswordScreen({super.key});
@@ -44,14 +41,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
               SizedBox(height: 100),
               MyCustomButton(text: "Confirm", width: double.maxFinite),
               SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  MyCustomIcon(email: Icons.email),
-                  MyCustomIcon(email: Icons.facebook),
-                  MyCustomIcon(email: Icons.apple),
-                ],
-              ),
+              MyCustomIcon(),
             ],
           ),
         ),

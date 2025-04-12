@@ -23,7 +23,7 @@ class MyCustomInputTextfield extends StatelessWidget {
         ),
       ),
       keyboardType: keybord,
-    );;
+    );
   }
 }
 

@@ -69,14 +69,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
               SizedBox(height: 50),
               Text('Or'),
               SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  MyCustomIcon(email: Icons.email),
-                  MyCustomIcon(email: Icons.facebook),
-                  MyCustomIcon(email: Icons.apple),
-                ],
-              ),
+              MyCustomIcon(),
               SizedBox(height: 20),
             ],
           ),

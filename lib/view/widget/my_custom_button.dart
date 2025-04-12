@@ -1,4 +1,4 @@
-import 'package:flutter/gestures.dart';
+
 import 'package:flutter/material.dart';
 import 'package:job_app/core/app_color.dart';
 
@@ -26,37 +26,24 @@ bool isSelected = false;
 class _MyCustomButtonState extends State<MyCustomButton> {
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (_){
-        setState(() {
-          isSelected = true;
-        });
-        print('hello');
-      },
-      onExit: (_ ){
-        setState(() {
-          isSelected = false;
-        });
-      },
-      child: GestureDetector(
-        onTap: widget.onTap,
-        child: Container(
-          height: 57,
-          width: widget.width,
-          margin: EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            border: Border.all(color: AppColor.appColor, width: 1),
-            color: widget.buttonColor,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          alignment: Alignment.center,
-          child: Text(
-            widget.text,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-              color: widget.tColor,
-            ),
+    return GestureDetector(
+      onTap: widget.onTap,
+      child: Container(
+        height: 57,
+        width: widget.width,
+        margin: EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          border: Border.all(color: AppColor.appColor, width: 1),
+          color: widget.buttonColor,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        alignment: Alignment.center,
+        child: Text(
+          widget.text,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+            color: widget.tColor,
           ),
         ),
       ),

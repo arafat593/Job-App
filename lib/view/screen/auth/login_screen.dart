@@ -1,10 +1,11 @@
-
 import 'package:flutter/material.dart';
 import 'package:job_app/core/app_color.dart';
 import 'package:job_app/core/app_text.dart';
 import 'package:job_app/view/screen/auth/forgot_password_screen.dart';
+import 'package:job_app/view/screen/auth/home_screen.dart';
 import 'package:job_app/view/screen/auth/register_acconut_screen.dart';
 import 'package:job_app/view/widget/my_custom_button.dart';
+import 'package:job_app/view/widget/my_custom_hyper_link.dart';
 import 'package:job_app/view/widget/my_custom_icon.dart';
 import 'package:job_app/view/widget/my_custom_input_textfield.dart';
 import 'package:job_app/view/widget/my_custom_text.dart';
@@ -71,7 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 width: double.maxFinite,
                 text: 'Sign in',
                 onTap: () {
-                  print("Login Successful");
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
                 },
               ),
               SizedBox(height: 25),
@@ -94,16 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               SizedBox(height: 10),
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  MyCustomIcon(email: Icons.email, link: () {
-                    print('hello');
-                  }),
-                  MyCustomIcon(email: Icons.facebook),
-                  MyCustomIcon(email: Icons.apple),
-                ],
-              ),
+              MyCustomIcon(),
             ],
           ),
         ),

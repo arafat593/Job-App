@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:job_app/core/app_color.dart';
 import 'package:job_app/core/app_text.dart';
@@ -80,14 +79,7 @@ class _RegisterAcconutState extends State<RegisterAcconut> {
                 ),
               ),
               SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  MyCustomIcon(email: Icons.email),
-                  MyCustomIcon(email: Icons.facebook),
-                  MyCustomIcon(email: Icons.apple),
-                ],
-              ),
+              MyCustomIcon(),
             ],
           ),
         ),

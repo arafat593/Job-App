@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:job_app/core/app_color.dart';
 import 'package:job_app/core/app_text.dart';
-import 'package:job_app/view/screen/auth/new_password_screen.dart';
 import 'package:job_app/view/screen/auth/verification_screen.dart';
 import 'package:job_app/view/widget/my_custom_button.dart';
 import 'package:job_app/view/widget/my_custom_icon.dart';
@@ -63,14 +62,7 @@ class ForgotPassword extends StatelessWidget {
               ),
               SizedBox(height: 30),
               Text("Or"),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  MyCustomIcon(email: Icons.email),
-                  MyCustomIcon(email: Icons.facebook),
-                  MyCustomIcon(email: Icons.apple),
-                ],
-              ),
+              MyCustomIcon(),
               SizedBox(height: 40),
             ],
           ),
