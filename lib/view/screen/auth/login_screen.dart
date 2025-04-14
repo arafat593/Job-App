@@ -72,7 +72,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 width: double.maxFinite,
                 text: 'Sign in',
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                  );
                 },
               ),
               SizedBox(height: 25),
