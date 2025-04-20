@@ -16,62 +16,81 @@ class VerificationScreen extends StatefulWidget {
 }
 
 class _VerificationScreenState extends State<VerificationScreen> {
+
+  final TextEditingController _codeController = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            children: [
-              SizedBox(height: 100),
-              MyCustomText(
-                text: AppText.verificationTitle,
-                fontSize: 30,
-                textColor: AppColor.appColor,
-                fontWeight: FontWeight.bold,
-              ),
-              SizedBox(height: 50),
-              MyCustomText(
-                text: AppText.verificationSubTitle,
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-              ),
-              SizedBox(height: 20),
-              MyCustomInputTextfield(
-                label: "Code",
-                keybord: TextInputType.number,
-              ),
-              SizedBox(height: 20),
-              MyCustomText(text: AppText.resendCode),
-              MyCustomTextButton(
-                text: "Resend",
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => VerificationScreen(),
-                    ),
-                  );
-                },
-              ),
-              MyCustomButton(
-                text: "Send",
-                width: double.infinity,
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => NewPasswordScreen(),
-                    ),
-                  );
-                },
-              ),
-              SizedBox(height: 50),
-              Text('Or'),
-              SizedBox(height: 20),
-              MyCustomIcon(),
-              SizedBox(height: 20),
-            ],
+      body: Form(
+        key: _formKey,
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              children: [
+                SizedBox(height: 100),
+                MyCustomText(
+                  text: AppText.verificationTitle,
+                  fontSize: 30,
+                  textColor: AppColor.appColor,
+                  fontWeight: FontWeight.bold,
+                ),
+                SizedBox(height: 50),
+                MyCustomText(
+                  text: AppText.verificationSubTitle,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+                SizedBox(height: 20),
+                MyCustomInputTextfield(
+                  label: "Code",
+                  keybord: TextInputType.number,
+                  controller: _codeController,
+                  validator: (String? value){
+                    if(value == null || value.isEmpty){
+                      return "Enter your code";
+                    } if(value.length<=3){
+                      return "Enter Valid Code";
+                    } return null;
+                  },
+                ),
+                SizedBox(height: 20),
+                MyCustomText(text: AppText.resendCode),
+                MyCustomTextButton(
+                  text: "Resend",
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => VerificationScreen(),
+                      ),
+                    );
+                  },
+                ),
+        
+                MyCustomButton(
+                  text: "Send",
+                  width: double.infinity,
+                  onTap: () {
+                    if(_formKey.currentState!.validate()){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => NewPasswordScreen(),
+                        ),
+                      );
+                    }
+        
+                  },
+                ),
+                SizedBox(height: 50),
+                Text('Or'),
+                SizedBox(height: 20),
+                MyCustomIcon(),
+                SizedBox(height: 20),
+              ],
+            ),
           ),
         ),
       ),

@@ -13,5 +13,7 @@ class AppText {
   static const String verificationSubTitle = "Enter Verification Code";
   static const String resendCode = "If you didn't receive a code,";
   static const String newPassword = "New Password";
+  static const String profileName = "Md. Al Arafat Shiddik";
+  static const String profileDesignation = "Software Engineer";
 
 }

@@ -1,16 +1,32 @@
 import 'package:flutter/material.dart';
 import '../../core/app_color.dart';
 
-class MyCustomInputTextfield extends StatelessWidget {
+class MyCustomInputTextfield extends StatefulWidget {
   final String label;
   final TextInputType keybord;
-  const MyCustomInputTextfield({super.key, required this.label, required this.keybord});
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
+
+  MyCustomInputTextfield({
+    super.key,
+    required this.label,
+    this.controller,
+    this.validator,
+    required this.keybord,
+  });
 
   @override
+  State<MyCustomInputTextfield> createState() => _MyCustomInputTextfieldState();
+}
+
+class _MyCustomInputTextfieldState extends State<MyCustomInputTextfield> {
+  @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      controller: widget.controller,
+      validator: widget.validator,
       decoration: InputDecoration(
-        labelText: label,
+        labelText: widget.label,
         filled: true,
         fillColor: AppColor.appLightColor,
         focusedBorder: OutlineInputBorder(
@@ -22,8 +38,7 @@ class MyCustomInputTextfield extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
         ),
       ),
-      keyboardType: keybord,
+      keyboardType: widget.keybord,
     );
   }
 }
-

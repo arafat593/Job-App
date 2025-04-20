@@ -59,7 +59,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   text: 'Register',
                   tColor: !isLogin ? Colors.white : Colors.black,
                   buttonColor:
-                      !isLogin ? AppColor.appColor : Colors.transparent,
+                  !isLogin ? AppColor.appColor : Colors.transparent,
 
                   onTap: () {
                     setState(() {
