@@ -43,6 +43,8 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
                       return "Enter Your Password";
+                    }if(value.length <= 7){
+                      return "Enter 8 dist password";
                     }
                     return null;
                   },
@@ -55,8 +57,6 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
                       return 'Enter your password';
-                    } if(value.length <= 7){
-                      return "Enter 8 dist password";
                     }
                     if (value != _newPasswordController.text) {
                       return "Password don't match";
