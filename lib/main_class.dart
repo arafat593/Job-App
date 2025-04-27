@@ -12,7 +12,7 @@ class JobApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'JobApp',
-      home: LoginScreen(),
+      home: SplashScreen(),
     );
   }
 }
